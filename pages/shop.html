@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOUR BRAND | Shop</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .currency-control {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 20px;
+    }
+
+    .currency-control select {
+      padding: 8px 12px;
+      font: inherit;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="../index.html" style="display:inline-block; margin-top:20px;">
+        <img src="../images/logo.jpg" alt="Vortex Studios Logo"
+             style="height:90px; width:auto; display:block;">
+      </a>
+
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <a href="cart.html">🛒 <b id="cartCount">0</b></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <p>STORE</p>
+          <h2>All Products</h2>
+        </div>
+
+        <div id="shopProducts" class="product-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <a class="logo white" href="../index.html">VORTEX<span>STUDIO</span></a>
+      <p>Everyday style. Made to feel like you.</p>
+    </div>
+    <div class="copyright">© 2026 YOUR BRAND. All Rights Reserved</div>
+  </footer>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/main.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const box = document.getElementById("shopProducts");
+
+      // Keep these currency codes and rates consistent with the homepage.
+      const CURRENCIES = {
+        USD: { rate: 1, locale: "en-US" },
+        BWP: { rate: 13.6, locale: "en-BW" },
+        GBP: { rate: 0.78, locale: "en-GB" },
+        EUR: { rate: 0.92, locale: "de-DE" }
+      };
+
+      const currencyKey = "currency";
+
+      if (!Array.isArray(products)) {
+        box.textContent = "Products could not be loaded.";
+        return;
+      }
+
+      function getCurrency() {
+        const savedCurrency = localStorage.getItem(currencyKey) || "USD";
+        return CURRENCIES[savedCurrency] ? savedCurrency : "USD";
+      }
+
+      function formatPrice(usdPrice, currency) {
+        const settings = CURRENCIES[currency];
+
+        return new Intl.NumberFormat(settings.locale, {
+          style: "currency",
+          currency
+        }).format(Number(usdPrice) * settings.rate);
+      }
+
+      function renderProducts() {
+        const currency = getCurrency();
+
+        box.innerHTML = products.map((product, index) => {
+          let imagePath = product.image || "";
+
+          if (
+            imagePath &&
+            !imagePath.startsWith("../") &&
+            !imagePath.startsWith("/") &&
+            !imagePath.startsWith("http://") &&
+            !imagePath.startsWith("https://")
+          ) {
+            imagePath = "../" + imagePath;
+          }
+
+          return `
+            <article class="product-card">
+              <div class="product-image">
+                <img src="${imagePath}" alt="${product.name || "Product"}"
+                     onerror="this.alt='Image not found'; this.style.display='none';">
+              </div>
+              <h3>${product.name || "Product"}</h3>
+              <div class="price">${formatPrice(product.price, currency)}</div>
+              <button type="button" onclick="addToCart(${index})">ADD TO CART</button>
+            </article>
+          `;
+        }).join("");
+      }
+
+      renderProducts();
+
+      // Update if the currency changes in another browser tab.
+      window.addEventListener("storage", event => {
+        if (event.key === currencyKey) {
+          renderProducts();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

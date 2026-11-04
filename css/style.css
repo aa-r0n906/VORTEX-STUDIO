@@ -1,0 +1,809 @@
+/* =========================
+   Base styles
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* =========================
+   Top bar and header
+========================= */
+.topbar {
+  border-bottom: 1px solid #eee;
+  color: #777;
+  font-size: 12px;
+}
+
+.topbar-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 9px 0;
+}
+
+.topbar-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  white-space: nowrap;
+}
+
+.topbar-options > a {
+  white-space: nowrap;
+}
+
+.topbar-dropdown {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.topbar-trigger {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.topbar-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 1000;
+  min-width: 180px;
+  padding: 6px 0;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.topbar-dropdown.open .topbar-menu {
+  display: block;
+}
+
+.topbar-menu button,
+.topbar-menu a {
+  display: block;
+  width: 100%;
+  padding: 9px 14px;
+  border: 0;
+  background: #fff;
+  color: #333;
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.topbar-menu button:hover,
+.topbar-menu a:hover {
+  background: #f3f3f3;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+}
+
+.nav {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header .logo {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  font-weight: 400;
+}
+
+.logo.white {
+  color: #fff;
+}
+
+.site-header .logo img {
+  display: block;
+  width: auto;
+  height: 90px;
+  max-height: none;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  opacity: 0.5;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-actions button,
+.nav-actions a,
+.menu-toggle {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* =========================
+   General buttons and sections
+========================= */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 15px 27px;
+  border: 0;
+  background: #fff;
+  color: #111;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.btn.dark {
+  background: #111;
+  color: #fff;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.light {
+  background: #fafafa;
+}
+
+.section-title {
+  margin-bottom: 45px;
+  text-align: center;
+}
+
+.section-title p {
+  margin: 0 0 15px;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 35px;
+}
+
+/* =========================
+   Standard hero
+========================= */
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+  color: #fff;
+}
+
+.eyebrow {
+  margin: 0 0 15px;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  margin: 0 0 22px;
+  font-size: clamp(48px, 7vw, 90px);
+  line-height: 0.95;
+}
+
+.hero-content > p:not(.eyebrow) {
+  max-width: 430px;
+  line-height: 1.7;
+}
+
+/* =========================
+   Categories and products
+========================= */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  position: relative;
+  height: 330px;
+  display: flex;
+  align-items: flex-end;
+  padding: 28px;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.category-card::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+  content: "";
+}
+
+.category-card span {
+  position: relative;
+  z-index: 1;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.product-image {
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.product-card img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+}
+
+.product-card h3 {
+  margin: 14px 0 7px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.product-card .price {
+  color: #777;
+  font-size: 14px;
+}
+
+.product-card button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 11px;
+  border: 0;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* =========================
+   Fashion slideshow hero
+========================= */
+.fashion-hero {
+  position: relative;
+  min-height: 600px;
+  height: min(820px, calc(100vh - 110px));
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 0.55fr;
+  align-items: center;
+  gap: 30px;
+  overflow: hidden;
+  padding: 55px 6% 70px;
+  background: #202022;
+  color: #f7f7f7;
+  transition: background-color 400ms ease;
+}
+
+.fashion-copy,
+.fashion-product,
+.fashion-details {
+  position: relative;
+  z-index: 1;
+  transform: translateY(25px);
+}
+
+.fashion-copy {
+  max-width: 470px;
+}
+
+.fashion-copy .eyebrow {
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+}
+
+.fashion-copy h1 {
+  margin: 18px 0;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.02;
+}
+
+.fashion-copy > p:not(.eyebrow) {
+  color: #ccc;
+  line-height: 1.65;
+}
+
+.fashion-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 22px;
+  padding: 13px 22px;
+  border-radius: 30px;
+  background: #fff;
+  color: #171719;
+}
+
+.fashion-product {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.fashion-product img {
+  width: min(100%, 360px);
+  max-height: 420px;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 28px #0008);
+}
+
+.fashion-product img.slide-up {
+  animation: clothesSlideUp 650ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+@keyframes clothesSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(90px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fashion-details {
+  justify-self: end;
+  min-width: 150px;
+}
+
+.product-price {
+  margin: 0 0 8px;
+  font-size: 34px;
+}
+
+.old-price {
+  margin: 0 0 42px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.size-label {
+  margin-bottom: 12px;
+}
+
+.size-options {
+  display: flex;
+  gap: 8px;
+}
+
+.size-options button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #555;
+  border-radius: 50%;
+  background: #2828cc;
+  color: #fff;
+  cursor: pointer;
+}
+
+.size-options button.selected,
+.size-options button:hover {
+  background: #fff;
+  color: #222;
+}
+
+.details-link {
+  display: inline-block;
+  margin-top: 28px;
+  color: #ddd;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.hero-arrows {
+  position: absolute;
+  top: 100px;
+  left: 6%;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  display: flex;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.hero-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #777;
+  cursor: pointer;
+}
+
+.hero-dots button.active {
+  background: #fff;
+}
+
+/* Slideshow backgrounds and light-slide text */
+.fashion-hero.slide-0 {
+  background-color: #202022;
+}
+
+.fashion-hero.slide-1 {
+  background-color: #d8d4cf;
+}
+
+.fashion-hero.slide-2 {
+  background-color: #d9e0e3;
+}
+
+.fashion-hero.slide-1,
+.fashion-hero.slide-2 {
+  color: #222;
+}
+
+.fashion-hero.slide-1 .fashion-copy .eyebrow,
+.fashion-hero.slide-2 .fashion-copy .eyebrow,
+.fashion-hero.slide-1 .fashion-copy > p:not(.eyebrow),
+.fashion-hero.slide-2 .fashion-copy > p:not(.eyebrow),
+.fashion-hero.slide-1 .details-link,
+.fashion-hero.slide-2 .details-link {
+  color: #555;
+}
+
+.fashion-hero.slide-1 .hero-arrows button,
+.fashion-hero.slide-2 .hero-arrows button {
+  background: #fff;
+  color: #222;
+}
+
+.fashion-hero.slide-1 .hero-dots button,
+.fashion-hero.slide-2 .hero-dots button {
+  background: #999;
+}
+
+.fashion-hero.slide-1 .hero-dots button.active,
+.fashion-hero.slide-2 .hero-dots button.active {
+  background: #222;
+}
+
+/* =========================
+   Promo, blog, newsletter, footer
+========================= */
+.promo {
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+}
+
+.promo-content {
+  max-width: 500px;
+}
+
+.promo h2 {
+  margin: 0;
+  font-size: 58px;
+  line-height: 1;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.blog-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.blog-card small {
+  display: block;
+  margin-top: 18px;
+  color: #888;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.blog-card h3 {
+  font-size: 20px;
+}
+
+.blog-card p {
+  color: #777;
+  line-height: 1.7;
+}
+
+.blog-card > a {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.newsletter {
+  padding: 75px 0;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.newsletter form {
+  display: flex;
+  max-width: 620px;
+  margin: 25px auto;
+}
+
+.newsletter input {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid #ddd;
+}
+
+.newsletter .btn {
+  margin: 0;
+}
+
+.footer {
+  padding: 65px 0 0;
+  background: #111;
+  color: #aaa;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 35px;
+}
+
+.footer h4 {
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.footer-grid a,
+.footer-grid p {
+  display: block;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.copyright {
+  margin-top: 45px;
+  padding: 20px;
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* =========================
+   Search overlay
+========================= */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.search-overlay.open {
+  display: flex;
+}
+
+.search-overlay input {
+  width: 70%;
+  padding: 15px;
+  border: 0;
+  border-bottom: 2px solid #111;
+  outline: 0;
+  font-size: 35px;
+}
+
+.search-overlay button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  border: 0;
+  background: none;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* =========================
+   Responsive styles
+========================= */
+@media (max-width: 850px) {
+  .fashion-hero {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    min-height: 600px;
+  }
+
+  .fashion-copy {
+    grid-column: 1 / -1;
+    padding-top: 45px;
+  }
+
+  .fashion-product {
+    min-height: 330px;
+  }
+
+  .fashion-product img {
+    max-height: 380px;
+  }
+
+  .fashion-details {
+    justify-self: center;
+  }
+
+  .hero-arrows {
+    top: 100px;
+  }
+}
+
+@media (max-width: 800px) {
+  nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .category-grid,
+  .product-grid,
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .category-grid,
+  .product-grid,
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 540px;
+  }
+
+  .product-image,
+  .product-card img {
+    height: 360px;
+  }
+
+  .promo h2 {
+    font-size: 43px;
+  }
+
+  .newsletter form {
+    display: block;
+  }
+
+  .newsletter input,
+  .newsletter .btn {
+    width: 100%;
+  }
+
+  .newsletter .btn {
+    margin-top: 10px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fashion-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    height: auto;
+    min-height: 600px;
+    padding-top: 80px;
+  }
+
+  .fashion-copy {
+    order: 1;
+    padding-top: 0;
+  }
+
+  .fashion-product {
+    order: 2;
+    min-height: 300px;
+  }
+
+  .fashion-details {
+    order: 3;
+    justify-self: auto;
+  }
+
+  .old-price {
+    margin-bottom: 18px;
+  }
+}

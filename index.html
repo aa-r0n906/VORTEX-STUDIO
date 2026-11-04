@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VORTEX STUDIO | Home</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .container.nav {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      min-height: 110px;
+    }
+
+    .logo {
+      display: flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+    }
+
+    .logo img {
+      display: block;
+      width: auto;
+      height: 90px;
+      max-width: 180px;
+      object-fit: contain;
+    }
+
+    .footer-brand-name {
+      margin: 0 0 14px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-brand-tagline {
+      margin: 0;
+      color: #c7c7c7;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* Home page article cards */
+    .home-blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .home-blog-grid .blog-card {
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .home-blog-grid .blog-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .home-blog-grid .blog-card:nth-child(2) img,
+    .home-blog-grid .blog-card:nth-child(3) img {
+      object-fit: contain;
+      background: #f5f5f5;
+    }
+
+    .home-blog-grid .blog-card h3 {
+      margin-top: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .home-blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .container.nav {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo img {
+        height: 72px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header class="site-header">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span class="topbar-tagline" data-i18n="tagline">
+        Everyday style. Made to feel like you.
+      </span>
+
+      <div class="topbar-options">
+        <div class="topbar-dropdown">
+          <button class="topbar-trigger" type="button" data-i18n="currency">CURRENCY</button>
+          <div class="topbar-menu">
+            <button type="button" data-currency="USD">USD</button>
+            <button type="button" data-currency="BWP">BWP</button>
+            <button type="button" data-currency="GBP">GBP</button>
+            <button type="button" data-currency="EUR">EUR</button>
+          </div>
+        </div>
+
+        <div class="topbar-dropdown">
+          <button class="topbar-trigger" type="button" data-i18n="language">LANGUAGE</button>
+          <div class="topbar-menu">
+            <button type="button" data-language="en">English</button>
+            <button type="button" data-language="tn">Setswana</button>
+            <button type="button" data-language="fr">French</button>
+          </div>
+        </div>
+
+        <div class="topbar-dropdown">
+          <button class="topbar-trigger" type="button" data-i18n="help">HELP</button>
+          <div class="topbar-menu">
+            <a href="pages/contact.html" data-i18n="contact">Contact</a>
+            <a href="pages/shipping.html" data-i18n="shipping">Shipping</a>
+            <a href="pages/returns.html" data-i18n="returns">Returns</a>
+            <a href="pages/faq.html" data-i18n="faq">Frequently Asked Questions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container nav">
+    <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+
+    <a class="logo" href="index.html" aria-label="Vortex Studio home">
+      <img src="images/logo.jpg" alt="Vortex Studio">
+    </a>
+
+    <nav>
+      <a href="index.html" data-i18n="home">Home</a>
+      <a href="pages/shop.html" data-i18n="shop">Shop</a>
+      <a href="#collections" data-i18n="collections">Collections</a>
+      <a href="pages/blog.html" data-i18n="blog">Blog</a>
+      <a href="pages/about.html" data-i18n="about">About</a>
+      <a href="pages/contact.html" data-i18n="contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="searchOpen" type="button" aria-label="Search">⌕</button>
+      <a href="pages/cart.html" aria-label="Shopping cart">🛒 <b id="cartCount">0</b></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="fashionHero" class="fashion-hero slide-0">
+    <div class="hero-arrows">
+      <button type="button" id="prevSlide" aria-label="Previous product">‹</button>
+      <button type="button" id="nextSlide" aria-label="Next product">›</button>
+    </div>
+
+    <div class="fashion-copy">
+      <p class="eyebrow" id="slideEyebrow" data-i18n="newCollection">NEW COLLECTION</p>
+      <h1 id="slideTitle">Find Your<br>Greatness</h1>
+      <p id="slideDescription" data-i18n="heroDescription">
+        Discover standout pieces designed for comfort, confidence, and everyday style.
+      </p>
+      <a href="pages/shop.html" class="fashion-button">
+        <span data-i18n="getTheLook">GET THE LOOK</span> ›
+      </a>
+    </div>
+
+    <div class="fashion-product" id="fashionProduct">
+      <img id="slideImage" src="images/products/jacket.png" alt="Featured jacket">
+    </div>
+
+    <div class="fashion-details">
+      <p class="product-price" id="slidePrice">$59.99</p>
+      <p class="old-price" id="slideOldPrice">$79.99</p>
+      <p class="size-label" data-i18n="chooseSize">Choose your size:</p>
+      <div class="size-options">
+        <button type="button">S</button>
+        <button type="button" class="selected">M</button>
+        <button type="button">L</button>
+        <button type="button">XL</button>
+      </div>
+      <a class="details-link" href="pages/shop.html" data-i18n="viewProduct">VIEW PRODUCT →</a>
+    </div>
+
+    <div class="hero-dots" id="heroDots" aria-label="Choose a slide"></div>
+  </section>
+
+  <section id="collections" class="section">
+    <div class="container">
+      <div class="section-title">
+        <p data-i18n="explore">EXPLORE</p>
+        <h2 data-i18n="shopByCategory">Shop by Category</h2>
+      </div>
+
+      <div class="category-grid">
+        <a class="category-card" href="pages/shop.html" style="background-image:url('images/categories/category-1.jpg')">
+          <span data-i18n="categoryOne">CATEGORY ONE</span>
+        </a>
+        <a class="category-card" href="pages/shop.html" style="background-image:url('images/categories/category-2.jpg')">
+          <span data-i18n="categoryTwo">CATEGORY TWO</span>
+        </a>
+        <a class="category-card" href="pages/shop.html" style="background-image:url('images/categories/category-3.jpg')">
+          <span data-i18n="categoryThree">CATEGORY THREE</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light">
+    <div class="container">
+      <div class="section-title">
+        <p data-i18n="featured">FEATURED</p>
+        <h2 data-i18n="ourProducts">Our Products</h2>
+      </div>
+      <div id="featuredProducts" class="product-grid"></div>
+    </div>
+  </section>
+
+  <section
+  class="promo"
+  style="background-image: url('images/promo.jpg');"
+  aria-labelledby="promoHeading"
+>
+  <div class="container">
+    <div class="promo-content">
+      <p class="eyebrow">NEW SEASON, NEW ENERGY</p>
+      <h2 id="promoHeading">Style That Moves<br>With You</h2>
+      <a href="pages/shop.html" class="btn dark">SHOP THE COLLECTION</a>
+    </div>
+  </div>
+</section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <p data-i18n="fromJournal">FROM OUR JOURNAL</p>
+        <h2 data-i18n="latestArticles">Latest Articles</h2>
+      </div>
+
+      <div class="home-blog-grid">
+        <article class="blog-card">
+          <!-- Confirm this filename and extension exist in images/blog/ -->
+          <img src="images/blog/blog-1.png" alt="A relaxed technical-fit tracksuit jacket">
+          <small>STYLE GUIDE · 5 MIN READ</small>
+          <h3>How to Style a Tracksuit Jacket</h3>
+          <p>Build an easy everyday outfit around a versatile technical layer.</p>
+          <a href="pages/blog-single.html">READ MORE →</a>
+        </article>
+
+        <article class="blog-card">
+          <!-- Confirm this filename and extension exist in images/blog/ -->
+          <img src="images/blog/blog-2.png" alt="A modern puffer jacket">
+          <small>NEW ARRIVALS · 4 MIN READ</small>
+          <h3>The Puffer Jacket, Reimagined</h3>
+          <p>Explore the relaxed shape and practical details behind this season’s essential layer.</p>
+          <a href="pages/blog-single.html">READ MORE →</a>
+        </article>
+
+        <article class="blog-card">
+          <!-- Confirm this filename and extension exist in images/blog/ -->
+          <img src="images/blog/blog-3.png" alt="Relaxed-fit track pants">
+          <small>FIT NOTES · 3 MIN READ</small>
+          <h3>Finding Your Perfect Track Pants Fit</h3>
+          <p>From relaxed to oversized, find a silhouette that feels comfortable and looks right.</p>
+          <a href="pages/blog-single.html">READ MORE →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <div class="container">
+      <h2 data-i18n="subscribe">Stay in the Loop</h2>
+      <p>Get updates on new arrivals, style notes, and Vortex Studio news.</p>
+      <form id="newsletterForm">
+        <input
+          type="email"
+          name="email"
+          placeholder="Your email address"
+          data-i18n-placeholder="emailPlaceholder"
+          aria-label="Your email address"
+          required
+        >
+        <button type="submit" class="btn dark" data-i18n="subscribeButton">SUBSCRIBE</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <h2 class="footer-brand-name">VORTEX STUDIO</h2>
+      <p class="footer-brand-tagline" data-i18n="tagline">
+        Everyday style. Made to feel like you.
+      </p>
+    </div>
+
+    <div>
+      <h4 data-i18n="shop">SHOP</h4>
+      <a href="pages/shop.html" data-i18n="categoryOne">Category One</a>
+      <a href="pages/shop.html" data-i18n="categoryTwo">Category Two</a>
+      <a href="pages/shop.html" data-i18n="categoryThree">Category Three</a>
+    </div>
+
+    <div>
+      <h4 data-i18n="information">INFORMATION</h4>
+      <a href="pages/about.html" data-i18n="about">About</a>
+      <a href="pages/contact.html" data-i18n="contact">Contact</a>
+      <a href="pages/shipping.html" data-i18n="shipping">Shipping</a>
+      <a href="pages/returns.html" data-i18n="returns">Returns</a>
+    </div>
+
+    <div>
+      <h4 data-i18n="contact">CONTACT</h4>
+      <p data-i18n="yourAddress">Your address</p>
+      <p>vortex@Studio</p>
+      <p>+267 73 615 796</p>
+    </div>
+  </div>
+
+  <div class="copyright" data-i18n="copyright">
+    © 2026 VORTEX STUDIO. All Rights Reserved.
+  </div>
+</footer>
+
+<div id="searchBox" class="search-overlay">
+  <button id="searchClose" type="button" aria-label="Close search">×</button>
+  <input type="search" placeholder="Search the store..." data-i18n-placeholder="searchPlaceholder">
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const currencies = {
+    USD: { rate: 1, symbol: "$" },
+    BWP: { rate: 13.6, symbol: "P" },
+    GBP: { rate: 0.78, symbol: "£" },
+    EUR: { rate: 0.92, symbol: "€" }
+  };
+
+  const currencyKey = "currency";
+  const priceElement = document.getElementById("slidePrice");
+  const oldPriceElement = document.getElementById("slideOldPrice");
+  const dots = document.getElementById("heroDots");
+  const image = document.getElementById("slideImage");
+  const prevButton = document.getElementById("prevSlide");
+  const nextButton = document.getElementById("nextSlide");
+
+  let currentCurrency = localStorage.getItem(currencyKey) || "USD";
+  if (!currencies[currentCurrency]) currentCurrency = "USD";
+
+  const slides = [
+    {
+      eyebrow: "NEW COLLECTION",
+      title: "Find Your<br>Greatness",
+      description: "Discover standout pieces designed for comfort, confidence, and everyday style.",
+      image: "images/products/jacket.png",
+      alt: "Featured jacket",
+      priceUsd: 59.99,
+      oldPriceUsd: 79.99
+    },
+    {
+      eyebrow: "EVERYDAY ESSENTIALS",
+      title: "Made to<br>Move",
+      description: "Easy-to-wear layers and timeless pieces made for wherever the day takes you.",
+      image: "images/products/hoodie.png",
+      alt: "Featured hoodie",
+      priceUsd: 49.99,
+      oldPriceUsd: 65
+    },
+    {
+      eyebrow: "FRESH ARRIVALS",
+      title: "Own Your<br>Style",
+      description: "Explore new-season favorites with a relaxed fit and a look all your own.",
+      image: "images/products/shirt.png",
+      alt: "Featured shirt",
+      priceUsd: 39.99,
+      oldPriceUsd: 50
+    }
+  ];
+
+  let currentSlide = 0;
+  let autoRotate;
+
+  function formatPrice(usdAmount) {
+    const currency = currencies[currentCurrency];
+    return `${currency.symbol}${(Number(usdAmount) * currency.rate).toFixed(2)}`;
+  }
+
+  function updateCurrencyDisplay() {
+    document.querySelectorAll("[data-price-usd]").forEach(element => {
+      element.textContent = formatPrice(element.dataset.priceUsd);
+    });
+
+    const slide = slides[currentSlide];
+    if (slide && priceElement && oldPriceElement) {
+      priceElement.textContent = formatPrice(slide.priceUsd);
+      oldPriceElement.textContent = formatPrice(slide.oldPriceUsd);
+    }
+  }
+
+  function showSlide(index) {
+    currentSlide = (index + slides.length) % slides.length;
+    const slide = slides[currentSlide];
+
+    document.getElementById("slideEyebrow").textContent = slide.eyebrow;
+    document.getElementById("slideTitle").innerHTML = slide.title;
+    document.getElementById("slideDescription").textContent = slide.description;
+
+    if (image) {
+      image.classList.remove("slide-up");
+      image.src = slide.image;
+      image.alt = slide.alt;
+      void image.offsetWidth;
+      image.classList.add("slide-up");
+    }
+
+    [...dots.children].forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentSlide);
+    });
+
+    updateCurrencyDisplay();
+  }
+
+  function restartAutoRotate() {
+    clearInterval(autoRotate);
+    autoRotate = setInterval(() => showSlide(currentSlide + 1), 6000);
+  }
+
+  if (image && dots && prevButton && nextButton) {
+    slides.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Show slide ${index + 1}`);
+      dot.addEventListener("click", () => {
+        showSlide(index);
+        restartAutoRotate();
+      });
+      dots.appendChild(dot);
+    });
+
+    prevButton.addEventListener("click", () => {
+      showSlide(currentSlide - 1);
+      restartAutoRotate();
+    });
+
+    nextButton.addEventListener("click", () => {
+      showSlide(currentSlide + 1);
+      restartAutoRotate();
+    });
+
+    showSlide(0);
+    restartAutoRotate();
+  }
+
+  document.querySelectorAll("[data-currency]").forEach(button => {
+    button.addEventListener("click", () => {
+      const selectedCurrency = button.dataset.currency;
+      if (!currencies[selectedCurrency]) return;
+
+      currentCurrency = selectedCurrency;
+      localStorage.setItem(currencyKey, currentCurrency);
+      updateCurrencyDisplay();
+    });
+  });
+
+  window.addEventListener("storage", event => {
+    if (event.key === currencyKey && currencies[event.newValue]) {
+      currentCurrency = event.newValue;
+      updateCurrencyDisplay();
+    }
+  });
+
+  document.querySelectorAll(".topbar-trigger").forEach(trigger => {
+    trigger.addEventListener("click", event => {
+      event.stopPropagation();
+
+      const dropdown = trigger.closest(".topbar-dropdown");
+      const wasOpen = dropdown.classList.contains("open");
+
+      document.querySelectorAll(".topbar-dropdown").forEach(item => {
+        item.classList.remove("open");
+      });
+
+      if (!wasOpen) dropdown.classList.add("open");
+    });
+  });
+
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".topbar-dropdown").forEach(item => {
+      item.classList.remove("open");
+    });
+  });
+
+  updateCurrencyDisplay();
+});
+</script>
+
+<script src="js/language.js"></script>
+</body>
+</html>

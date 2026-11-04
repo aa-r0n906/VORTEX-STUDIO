@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VORTEX STUDIO | Contact</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .container.nav {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      min-height: 110px;
+    }
+
+    .header-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo {
+      display: flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+    }
+
+    .logo img {
+      display: block;
+      width: auto;
+      height: 60px;
+      margin: 0;
+    }
+
+    .topbar-tagline,
+    .header-tagline {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .contact-form {
+      max-width: 650px;
+      margin: 0 auto;
+      display: grid;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid #ddd;
+      font: inherit;
+    }
+
+    .contact-form textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .contact-form button {
+      cursor: pointer;
+    }
+
+    .footer-brand-name {
+      margin: 0 0 14px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-brand-tagline {
+      margin: 0;
+      color: #c7c7c7;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span class="topbar-tagline">Everyday style. Made to feel like you.</span>
+      </div>
+    </div>
+
+    <div class="container nav">
+      <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+
+      <div class="header-brand">
+        <a class="logo" href="../index.html">
+          <img src="../images/logo.jpg" alt="Vortex Studio">
+        </a>
+      </div>
+
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="../index.html#collections">Collections</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="searchOpen" type="button" aria-label="Search">⌕</button>
+        <a href="cart.html">🛒 <b id="cartCount">0</b></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <p>GET IN TOUCH</p>
+          <h1>Contact Us</h1>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+          <label for="contactName">Your name</label>
+          <input id="contactName" name="name" type="text" placeholder="Your name" required>
+
+          <label for="contactEmail">Your email</label>
+          <input id="contactEmail" name="email" type="email" placeholder="Your email" required>
+
+          <label for="contactMessage">Your message</label>
+          <textarea id="contactMessage" name="message" placeholder="Your message" required></textarea>
+
+          <button class="btn dark" type="submit">SEND MESSAGE</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h2 class="footer-brand-name">VORTEX STUDIO</h2>
+        <p class="footer-brand-tagline">Everyday style. Made to feel like you.</p>
+      </div>
+
+      <div>
+        <h4>SHOP</h4>
+        <a href="shop.html">Category One</a>
+        <a href="shop.html">Category Two</a>
+        <a href="shop.html">Category Three</a>
+      </div>
+
+      <div>
+        <h4>INFORMATION</h4>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="shipping.html">Shipping</a>
+        <a href="returns.html">Returns</a>
+      </div>
+
+      <div>
+        <h4>CONTACT</h4>
+        <p>Your address</p>
+        <p>vortex@Studio</p>
+        <p>+267 73 615 796</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 VORTEX STUDIO. All Rights Reserved.
+    </div>
+  </footer>
+
+  <div id="searchBox" class="search-overlay">
+    <button id="searchClose" type="button" aria-label="Close search">×</button>
+    <input type="search" placeholder="Search your store...">
+  </div>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

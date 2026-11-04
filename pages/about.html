@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VORTEX STUDIO | About</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .container.nav {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      min-height: 110px;
+    }
+
+    .topbar-tagline {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .header-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+    }
+
+    .logo img {
+      display: block;
+      width: auto;
+      height: 60px;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span class="topbar-tagline">Everyday style. Made to feel like you.</span>
+      </div>
+    </div>
+
+    <div class="container nav">
+      <button class="menu-toggle" type="button" aria-label="Open menu">☰</button>
+
+      <div class="header-brand">
+        <a class="logo" href="../index.html">
+          <img src="../images/logo.jpg" alt="Vortex Studio">
+        </a>
+      </div>
+
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="searchOpen" type="button" aria-label="Search">⌕</button>
+        <a href="cart.html">🛒 <b id="cartCount">0</b></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container about-placeholder">
+        <div class="section-title">
+          <p>OUR STORY</p>
+          <h2>Style Made for Everyday</h2>
+        </div>
+
+        <p>
+          VORTEX STUDIO is a clothing label focused on versatile pieces that feel
+          good to wear and easy to make your own. We believe great style doesn’t
+          need to be complicated—it starts with thoughtful designs, comfortable
+          fits, and details that work in everyday life.
+        </p>
+
+        <p>
+          Our collection brings together modern essentials and standout
+          favorites, designed to help you feel confident wherever the day takes
+          you. Thanks for being here and making VORTEX STUDIO part of your story.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <a class="logo white" href="../index.html">VORTEX<span>STUDIO</span></a>
+      <p>Everyday style. Made to feel like you.</p>
+    </div>
+    <div class="copyright">© 2026 VORTEX STUDIO. All rights reserved.</div>
+  </footer>
+
+  <div id="searchBox" class="search-overlay">
+    <button id="searchClose" type="button" aria-label="Close search">×</button>
+    <input type="search" placeholder="Search your store...">
+  </div>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

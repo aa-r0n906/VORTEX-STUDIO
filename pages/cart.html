@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUR BRAND | Cart</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="site-header">
+<div class="container nav">
+<a class="logo" href="../index.html">YOUR<span>BRAND</span></a>
+<nav>
+<a href="../index.html">Home</a><a href="shop.html">Shop</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+</nav>
+<a href="cart.html">🛒 <b id="cartCount">0</b></a>
+</div>
+</header>
+<main><section class="section"><div class="container">
+<div class="section-title"><p>YOUR SHOPPING BAG</p><h2>Cart</h2></div>
+<div id="cartPage"></div>
+</div></section>
+<script>
+function drawCart(){
+ const box=document.getElementById("cartPage");
+ const cart=JSON.parse(localStorage.getItem("cart")||"[]");
+ if(!cart.length){box.innerHTML="<p>Your cart is empty.</p>";return;}
+ let total=0;
+ box.innerHTML=cart.map((p,i)=>{total+=Number(p.price);return `<div style="display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:18px 0"><span>${p.name}</span><strong>$${Number(p.price).toFixed(2)}</strong></div>`}).join("")+
+ `<h3 style="text-align:right;margin-top:30px">Total: $${total.toFixed(2)}</h3><button class="btn dark" onclick="alert('Connect your checkout/payment system here.')">CHECKOUT</button>`;
+}
+document.addEventListener("DOMContentLoaded",drawCart);
+</script></main>
+<footer class="footer"><div class="container"><a class="logo white" href="../index.html">YOUR<span>BRAND</span></a><p>Replace footer content with your own.</p></div><div class="copyright">© 2026 YOUR BRAND.</div></footer>
+<script src="../js/products.js"></script><script src="../js/main.js"></script>
+</body></html>

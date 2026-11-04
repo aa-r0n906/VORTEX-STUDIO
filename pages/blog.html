@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VORTEX STUDIO | Blog</title>
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    .topbar {
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .topbar-inner {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .topbar-tagline {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .container.nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 90px;
+    }
+
+    .header-logo img {
+      display: block;
+      width: auto;
+      height: 60px;
+      max-width: 180px;
+      object-fit: contain;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .blog-card {
+      overflow: hidden;
+    }
+
+    .blog-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Show the full second and third images without cropping */
+    .blog-card:nth-child(2) img,
+    .blog-card:nth-child(3) img {
+      object-fit: contain;
+      background: #f5f5f5;
+    }
+
+    @media (max-width: 768px) {
+      .container.nav {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+      }
+
+      .blog-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <p class="topbar-tagline">Everyday style. Made to feel like you.</p>
+      </div>
+    </div>
+
+    <div class="container nav">
+      <a class="logo header-logo" href="../index.html" aria-label="Vortex Studio home">
+        <img src="../images/logo.jpg" alt="Vortex Studio">
+      </a>
+
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="blog.html" aria-current="page">Blog</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <a href="cart.html" aria-label="Shopping cart">
+        🛒 <b id="cartCount">0</b>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <p>JOURNAL</p>
+          <h2>Blog</h2>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <img src="../images/blog/blog-1.png" alt="Tracksuit jacket">
+            <small>CATEGORY · DATE</small>
+            <h3>Tracksuit Jacket</h3>
+            <p>Relaxed Technical Fit.</p>
+            <a href="blog-single.html">READ MORE →</a>
+          </article>
+
+          <article class="blog-card">
+            <img src="../images/blog/blog-2.png" alt="Puffer jacket">
+            <small>CATEGORY · DATE</small>
+            <h3>Puffer Jacket</h3>
+            <p>Modern Boxy Cut.</p>
+            <a href="blog-single.html">READ MORE →</a>
+          </article>
+
+          <article class="blog-card">
+            <img src="../images/blog/blog-3.png" alt="Track pants">
+            <small>CATEGORY · DATE</small>
+            <h3>Track Pants</h3>
+            <p>Ultra-Baggy Silhouette.</p>
+            <a href="blog-single.html">READ MORE →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <a class="logo white" href="../index.html">VORTEX<span>STUDIO</span></a>
+      <p>Everyday style. Made to feel like you.</p>
+    </div>
+    <div class="copyright">© 2026 VORTEX STUDIO. All rights reserved.</div>
+  </footer>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
